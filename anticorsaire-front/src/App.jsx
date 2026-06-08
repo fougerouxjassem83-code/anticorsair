@@ -1,8 +1,11 @@
 import { useState } from 'react'
 
-import './App.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
 import Banniere from './composant/Banniere'
-import Formulaire from './composant/Formulaire'
+import Accueil from './composant/Accueil'
+import Footer from './composant/Footer'
+import Navbar from './composant/navbar'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,7 +13,9 @@ function App() {
   return (
     <>
       <Banniere />
-      <Formulaire />
+      <Navbar />
+      <Accueil />
+      <Footer />
 
     </>
   )
