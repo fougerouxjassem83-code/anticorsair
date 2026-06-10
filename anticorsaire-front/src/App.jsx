@@ -1,26 +1,44 @@
+// Importer le hook useState de React pour gérer l'état local
 import { useState } from 'react'
+// Importer la bibliothèque ReactModal pour afficher des modales
+import ReactModal from "react-modal"
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Routes, Route, Link } from "react-router-dom";
 
+
+// Importer le composant Banniere qui affiche la bannière du site
 import Banniere from './composant/Banniere'
-import Accueil from './composant/Accueil'
+// Importer le composant Accueil qui affiche la page d'accueil
+import Accueil from './page/Accueil'
+// Importer le composant Footer qui affiche le pied de page
+
+import Reservation from './page/Reservation'
+
 import Footer from './composant/Footer'
-import Navbar from './composant/navbar'
+// Importer le composant Navbar qui affiche la barre de navigation
+import Navbar from './composant/Navbar'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+// Déclarer le composant principal App
+const App = () => {
   return (
     <>
-      <Banniere />
-      <Navbar />
-      <Accueil />
+      <nav>
+        <ul>
+          <li><Link to="/">Accueil</Link></li>
+          <li><Link to="/Reservation">Réservation</Link></li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Accueil />} />
+        <Route path="/Reservation" element={<Reservation />} />
+      </Routes>
+
       <Footer />
-
     </>
-  )
-
-  
+  );
 }
+
+      
 
 export default App
